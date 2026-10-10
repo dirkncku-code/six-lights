@@ -1,0 +1,418 @@
+<style>
+.sl{max-width:72rem;margin-inline:auto;display:flex;flex-direction:column;gap:var(--cds-gap-lg);font-family:var(--font-anthropic-sans);color:var(--color-fg);font-variant-numeric:tabular-nums}
+.sl-head{display:flex;flex-direction:column;gap:var(--cds-gap-sm)}
+.sl-title{font-family:var(--font-anthropic-serif);font-weight:400;font-size:var(--cds-font-size-title);margin:0;text-wrap:balance}
+.sl-take{margin:0;font-size:var(--cds-font-size-body);line-height:1.7;max-width:46rem}
+.sl .sl-take b,.sl .sl-tile b{font-weight:600}
+.sl-sub{margin:0;color:var(--color-fg-muted);font-size:var(--cds-font-size-caption)}
+.sl-tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,11rem),1fr));gap:var(--cds-gap-md)}
+.sl-tile{background:var(--color-panel);border:1px solid var(--color-border-line);border-radius:var(--cds-radius);padding:var(--cds-pad-lg);display:flex;flex-direction:column;gap:var(--cds-gap-xs);min-width:0}
+.sl-tile-label{font-size:var(--cds-font-size-caption);color:var(--color-fg-muted)}
+.sl-big{font-family:var(--font-anthropic-serif);font-weight:400;font-size:2.4rem;line-height:1.1}
+.sl-unit{font-size:var(--cds-font-size-heading);color:var(--color-fg-muted);margin-left:.15rem}
+.sl-card{background:var(--color-panel);border:1px solid var(--color-border-line);border-radius:var(--cds-radius);padding:var(--cds-pad-lg);display:flex;flex-direction:column;gap:var(--cds-gap-sm);min-width:0}
+.sl-card h2{margin:0;font-size:var(--cds-font-size-heading);font-weight:var(--cds-font-weight-medium);text-wrap:balance}
+.sl-note{margin:0;color:var(--color-fg-muted);font-size:var(--cds-font-size-caption);line-height:1.6}
+.sl-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,22rem),1fr));gap:var(--cds-gap-md)}
+.sl-lights{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr));gap:var(--cds-gap-md);min-height:10rem}
+.sl-light{border:1px solid var(--color-border-line);border-radius:var(--cds-radius);padding:var(--cds-pad-md);display:flex;flex-direction:column;gap:var(--cds-gap-xs);min-width:0}
+.sl-light-top{display:flex;justify-content:space-between;align-items:center;gap:var(--cds-gap-sm)}
+.sl-light-name{font-weight:var(--cds-font-weight-medium)}
+.sl-pill{font-size:var(--cds-font-size-caption);border:1px solid currentColor;border-radius:999px;padding:0 .55rem;white-space:nowrap}
+.sl-pill.is-on{color:var(--color-bad)}
+.sl-pill.is-off{color:var(--color-ok)}
+.sl-reading{font-family:var(--font-anthropic-serif);font-size:var(--cds-font-size-title)}
+.sl-light p{margin:0;font-size:var(--cds-font-size-caption);line-height:1.55;color:var(--color-fg-muted)}
+.sl-light .sl-why{color:var(--color-fg)}
+.sl-chart{position:relative;min-height:15rem}
+.sl-chart.is-short{min-height:11rem}
+.sl-chart svg{display:block}
+.sl-tip{position:absolute;pointer-events:none;background:var(--cds-surface-popover);border:1px solid var(--cds-border);border-radius:var(--cds-radius);box-shadow:var(--cds-shadow-popover);padding:var(--cds-pad-xs) var(--cds-pad-sm);font-size:var(--cds-font-size-caption);line-height:1.5;max-width:15rem;z-index:2}
+.sl-tip .sl-tip-date{color:var(--cds-text-secondary)}
+.sl-fail{display:flex;align-items:center;justify-content:center;gap:.4rem;min-height:inherit;color:var(--color-fg-muted);font-size:var(--cds-font-size-caption)}
+.sl-fail::before{content:"";width:.375rem;height:.375rem;border-radius:50%;background:var(--color-bad)}
+.sl-tablebox{overflow-x:auto}
+.sl table{width:100%;border-collapse:collapse;font-size:var(--cds-font-size-caption)}
+.sl th{text-align:left;font-weight:var(--cds-font-weight-medium);color:var(--color-fg-muted);border-bottom:1px solid var(--color-border-line);padding:.4rem .5rem;white-space:nowrap}
+.sl td{border-bottom:1px solid var(--color-border-line);padding:.45rem .5rem}
+.sl td.num,.sl th.num{text-align:right}
+.sl ul{margin:0;padding-left:1.2rem;display:flex;flex-direction:column;gap:.35rem;font-size:var(--cds-font-size-body);line-height:1.6}
+.sl-disclaimer{margin:0;color:var(--color-fg-muted);font-size:var(--cds-font-size-caption);line-height:1.6;border-top:1px solid var(--color-border-line);padding-top:var(--cds-pad-md)}
+[data-dash-source-state=refreshing]{opacity:.5;transition:opacity var(--cds-dur-slow)}
+[data-dash-source-state=empty]{color:transparent}
+</style>
+
+<div class="sl">
+  <header class="sl-head" id="top">
+    <h1 class="sl-title">6 燈衰退儀表板</h1>
+    <p class="sl-take" id="takeaway">
+      <span class="dash-skeleton" data-source="latest" data-field="label" data-row="0">—</span>月底，6 個總經燈號亮了
+      <b class="dash-skeleton" data-source="latest" data-field="lights" data-row="0">—</b> 個，狀態是「<b class="dash-skeleton" data-source="state" data-field="state" data-row="0">—</b>」。
+      1968 年以來，同樣亮燈數的時候，之後一年進入衰退的比例約
+      <b class="dash-skeleton" data-source="nowodds" data-field="recession_pct" data-row="0">—</b>%。
+    </p>
+    <p class="sl-sub">只放客觀數據與歷史統計：燈號是量尺，不是預言，也不構成投資建議。</p>
+  </header>
+
+  <section class="sl-tiles" id="tiles" aria-label="現在的讀數">
+    <div class="sl-tile">
+      <span class="sl-tile-label">現在亮幾燈</span>
+      <span><span class="sl-big dash-skeleton" data-source="latest" data-field="lights" data-row="0">—</span><span class="sl-unit">／6</span></span>
+      <span class="sl-tile-label"><span data-source="latest" data-field="label" data-row="0">—</span>月底</span>
+    </div>
+    <div class="sl-tile">
+      <span class="sl-tile-label">之後一年衰退的歷史比例</span>
+      <span><span class="sl-big dash-skeleton" data-source="nowodds" data-field="recession_pct" data-row="0">—</span><span class="sl-unit">%</span></span>
+      <span class="sl-tile-label">同樣亮燈數的月份（3 燈以上合併）</span>
+    </div>
+    <div class="sl-tile">
+      <span class="sl-tile-label">近 12 個月最多亮</span>
+      <span><span class="sl-big dash-skeleton" data-source="max12" data-field="max_lights" data-row="0">—</span><span class="sl-unit">燈</span></span>
+      <span class="sl-tile-label">從 <span data-source="max12" data-field="since" data-row="0">—</span>起</span>
+    </div>
+    <div class="sl-tile">
+      <span class="sl-tile-label">狀態</span>
+      <span class="sl-big dash-skeleton" data-source="state" data-field="state" data-row="0">—</span>
+      <span class="sl-tile-label" data-source="state" data-field="note" data-row="0">—</span>
+    </div>
+  </section>
+
+  <section class="sl-card" id="lights">
+    <h2>現在的 6 個燈</h2>
+    <p class="sl-note">照景氣轉弱可能的先後順序排列：資金收緊 → 房市 → 企業盈餘、庫存 → 裁員 → 消費。挑燈只看兩件事：它得在衰退之前亮，而且說得出為什麼會先亮。</p>
+    <div class="sl-lights dash-skeleton" id="lightgrid" data-source="now"></div>
+  </section>
+
+  <section class="sl-card" id="timeline">
+    <h2>1968 年以來，每個月亮幾燈</h2>
+    <p class="sl-note">灰底是實際發生的衰退（NBER 認定）。淺色柱是衰退中與衰退結束後 12 個月，燈還沒熄，燈號不計。虛線是 3 燈警戒線。滑過圖可以看當月亮了哪些燈。</p>
+    <div class="sl-chart dash-skeleton" id="tl" data-source="monthly"></div>
+  </section>
+
+  <div class="sl-grid">
+    <section class="sl-card" id="odds">
+      <h2>亮幾燈，之後一年進入衰退的比例</h2>
+      <p class="sl-note">1968～2025 年的月份，已排除衰退中與衰退結束後 12 個月。前後兩段各自算，方向一致。</p>
+      <div class="sl-chart is-short dash-skeleton" id="oddschart" data-source="odds"></div>
+      <div class="sl-tablebox">
+        <table id="oddstable" data-source="odds" data-row-key="lights">
+          <thead><tr>
+            <th data-field="lights">亮幾燈</th>
+            <th class="num" data-field="recession_pct">衰退（%）</th>
+            <th class="num" data-field="early_pct">1968–95（%）</th>
+            <th class="num" data-field="late_pct">1996–2025（%）</th>
+            <th class="num" data-field="drop20_pct">S&amp;P 跌 ≥20%（%）</th>
+            <th class="num" data-field="months">月數</th>
+          </tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="sl-card" id="recessions">
+      <h2>每一次衰退：開始前多早亮到 3 燈</h2>
+      <p class="sl-note">衰退開始前 12 個月內，最多同時亮幾燈，以及第一次亮到 3 燈是在衰退開始前幾個月。</p>
+      <div class="sl-tablebox">
+        <table id="rectable" data-source="recessions" data-row-key="start">
+          <thead><tr>
+            <th data-field="name">衰退</th>
+            <th data-field="start">開始</th>
+            <th class="num" data-field="max_lights">最多同時亮</th>
+            <th class="num" data-field="lead_months">提前幾個月達 3 燈</th>
+          </tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+
+  <section class="sl-card" id="limits">
+    <h2>這張表的弱點</h2>
+    <p class="sl-note">最近 15 年，亮到 3 燈以上的警報有 <b data-source="alarmstats" data-field="n" data-row="0">—</b> 次，之後真的進入衰退的只有 <b data-source="alarmstats" data-field="hit" data-row="0">—</b> 次。當時只用已知歷史算出的比例明顯偏高。</p>
+    <div class="sl-tablebox">
+      <table id="alarmtable" data-source="alarms" data-row-key="period">
+        <thead><tr>
+          <th data-field="period">亮 3 燈以上的時段</th>
+          <th class="num" data-field="model_low_pct">當時算出（低，%）</th>
+          <th class="num" data-field="model_high_pct">當時算出（高，%）</th>
+          <th data-field="recession_followed">之後一年衰退？</th>
+        </tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <ul>
+      <li>它量的是衰退，不是股災。泡沫破裂、突發衝擊（例如 1987 年、2020 年）和升息造成的估值修正，燈號擋不住。</li>
+      <li>2022～2023 年，倒掛、盈餘、庫存都亮了，經濟卻撐住了。作者的解讀是：那是暴力升息造成的短期現象。</li>
+      <li>1968 年以來的衰退次數很少（上面那張表就是全部），所以這裡的數字是歷史比例，不是精確機率。</li>
+      <li>消費、盈餘是季資料，用的是事後修正過的數字，比當時看到的漂亮。</li>
+      <li>選哪 6 個燈、門檻定多少，是看過歷史之後才決定的，結果可能偏樂觀。</li>
+    </ul>
+  </section>
+
+  <section class="sl-card" id="method">
+    <h2>怎麼算的</h2>
+    <ul>
+      <li>每個月底，看 6 個燈各自亮不亮，只用那一天之前已經公布的數字（季資料要等 1～2 個月）。</li>
+      <li>數一數亮了幾個，再看之後 12 個月有沒有進入衰退（以 NBER 認定為準）。</li>
+      <li>衰退期間與衰退結束後 12 個月不計：燈還沒熄，不代表下一次衰退。</li>
+      <li>資料來源：美國聯準會聖路易分行 FRED（ICSA、PCECC96、PERMIT、GS10、TB3MS、CP、INVCMRMTSPL、CMRMTSPL、USREC）。</li>
+    </ul>
+  </section>
+
+  <p class="sl-disclaimer">德克觀點｜每月 1 日更新。這頁是個人研究紀錄，用歷史數據整理總經燈號；不是預測，也不構成任何投資建議。總經是一把量尺：經由客觀的數據，形成主觀的看法。</p>
+</div>
+
+<script>
+(function () {
+  const LIGHTS = [
+    { key: 'curve', name: '殖利率倒掛' }, { key: 'permits', name: '營建許可' }, { key: 'profits', name: '企業盈餘' },
+    { key: 'inventory', name: '庫存銷售比' }, { key: 'claims', name: '初領失業金' }, { key: 'consumption', name: '消費' }
+  ];
+  window.SL_LIGHTS = LIGHTS;
+
+  dash.calc('latest', {
+    inputs: ['monthly'], title: '最新一個月',
+    description: '每月燈號的最後一列：月份、亮燈數、是否在不計期間。',
+    fn: (monthly) => {
+      const r = monthly[monthly.length - 1];
+      const d = String(r.month);
+      return [{ month: d, label: `${+d.slice(0, 4)} 年 ${+d.slice(5, 7)} 月`, lights: +r.lights, excluded: +r.excluded }];
+    }
+  });
+  dash.calc('nowodds', {
+    inputs: ['latest', 'odds'], title: '現在對應的歷史比例',
+    description: '用最新的亮燈數（3 燈以上合併）查機率表的衰退比例。',
+    fn: (latest, odds) => {
+      const n = latest[0].lights;
+      const key = n >= 3 ? '3+' : String(n);
+      const r = odds.find((o) => String(o.lights) === key);
+      return [{ lights: key, recession_pct: +r.recession_pct }];
+    }
+  });
+  dash.calc('max12', {
+    inputs: ['monthly'], title: '近 12 個月最多亮幾燈',
+    description: '每月燈號最後 12 列裡最大的亮燈數。',
+    fn: (monthly) => {
+      const w = monthly.slice(-12);
+      const d = String(w[0].month);
+      return [{ max_lights: Math.max(...w.map((r) => +r.lights)), since: `${+d.slice(0, 4)} 年 ${+d.slice(5, 7)} 月` }];
+    }
+  });
+  dash.calc('state', {
+    inputs: ['latest'], title: '狀態',
+    description: '0 燈＝全暗；1～2 燈＝留意；3 燈以上＝提高警覺；衰退中或剛結束＝不計。',
+    fn: (latest) => {
+      const r = latest[0];
+      if (r.excluded) return [{ state: '不計', note: '衰退中或衰退剛結束，燈還沒熄' }];
+      if (r.lights >= 3) return [{ state: '提高警覺', note: '亮到 3 燈以上' }];
+      if (r.lights >= 1) return [{ state: '留意', note: '有燈亮，但還沒到 3 燈' }];
+      return [{ state: '全暗', note: '6 個燈都沒亮' }];
+    }
+  });
+  dash.calc('alarmstats', {
+    inputs: ['alarms'], title: '近 15 年的警報',
+    description: '亮 3 燈以上的時段數，以及之後一年真的進入衰退的時段數。',
+    fn: (alarms) => [{ n: alarms.length, hit: alarms.filter((a) => a.recession_followed === '有').length }]
+  });
+
+  const failLine = (box) => {
+    box.textContent = '';
+    const f = document.createElement('div');
+    f.className = 'sl-fail';
+    f.textContent = 'Failed to load';
+    box.appendChild(f);
+  };
+  const bad = (s) => s === 'error' || s === 'connect' || s === 'declined' || s === 'missing';
+
+  function fillSingles() {
+    document.querySelectorAll('.sl [data-source][data-field][data-row]').forEach((el) => {
+      if (el.closest('table')) return;
+      const d = dash.data(el.getAttribute('data-source'));
+      if (d.status !== 'ok') {
+        el.textContent = '—';
+        if (bad(d.status)) el.classList.remove('dash-skeleton');
+        return;
+      }
+      const row = d.data[+el.getAttribute('data-row')];
+      const v = row ? row[el.getAttribute('data-field')] : undefined;
+      el.textContent = v === undefined || v === null ? '—' : String(v);
+      el.classList.remove('dash-skeleton');
+    });
+  }
+
+  function fillTable(id, source, numeric) {
+    const table = document.getElementById(id);
+    const tbody = table.querySelector('tbody');
+    const d = dash.data(source);
+    tbody.textContent = '';
+    if (d.status !== 'ok') return;
+    const fields = [...table.querySelectorAll('th')].map((th) => th.getAttribute('data-field'));
+    d.data.forEach((r) => {
+      const tr = document.createElement('tr');
+      fields.forEach((f) => {
+        const td = document.createElement('td');
+        td.textContent = r[f] === undefined || r[f] === null || r[f] === '' ? '—' : String(r[f]);
+        if (numeric.includes(f)) td.className = 'num';
+        tr.appendChild(td);
+      });
+      tbody.appendChild(tr);
+    });
+  }
+
+  function drawLights() {
+    const box = document.getElementById('lightgrid');
+    const d = dash.data('now');
+    box.textContent = '';
+    if (d.status !== 'ok') { if (bad(d.status)) { box.classList.remove('dash-skeleton'); failLine(box); } return; }
+    box.classList.remove('dash-skeleton');
+    [...d.data].sort((a, b) => +a.order - +b.order).forEach((r) => {
+      const where = 'light=' + encodeURIComponent(r.light);
+      const card = document.createElement('div');
+      card.className = 'sl-light';
+      const top = document.createElement('div'); top.className = 'sl-light-top';
+      const name = document.createElement('span'); name.className = 'sl-light-name';
+      name.setAttribute('data-source', 'now'); name.setAttribute('data-field', 'light'); name.setAttribute('data-where', where);
+      name.textContent = r.light;
+      const pill = document.createElement('span');
+      const on = +r.lit === 1;
+      pill.className = 'sl-pill ' + (on ? 'is-on' : 'is-off');
+      pill.textContent = on ? '亮' : '暗';
+      top.append(name, pill);
+      const reading = document.createElement('span'); reading.className = 'sl-reading';
+      reading.setAttribute('data-source', 'now'); reading.setAttribute('data-field', 'reading'); reading.setAttribute('data-where', where);
+      reading.textContent = r.reading;
+      const month = document.createElement('p');
+      const mspan = document.createElement('span');
+      mspan.setAttribute('data-source', 'now'); mspan.setAttribute('data-field', 'data_month'); mspan.setAttribute('data-where', where);
+      mspan.textContent = r.data_month;
+      month.append('最新資料：', mspan);
+      const rule = document.createElement('p');
+      rule.setAttribute('data-source', 'now'); rule.setAttribute('data-field', 'rule'); rule.setAttribute('data-where', where);
+      rule.textContent = r.rule;
+      const why = document.createElement('p'); why.className = 'sl-why';
+      why.setAttribute('data-source', 'now'); why.setAttribute('data-field', 'why'); why.setAttribute('data-where', where);
+      why.textContent = r.why;
+      card.append(top, reading, month, rule, why);
+      box.appendChild(card);
+    });
+  }
+
+  function axisStyle(g) {
+    g.attr('font-size', null).attr('font-family', null);
+    g.selectAll('text').style('fill', 'var(--color-fg-muted)').style('font-size', 'var(--cds-font-size-caption)');
+    g.selectAll('line,path').style('stroke', 'var(--cds-chart-axis)');
+  }
+
+  function drawTimeline() {
+    const box = document.getElementById('tl');
+    const d = dash.data('monthly');
+    box.textContent = '';
+    if (d.status !== 'ok') { if (bad(d.status)) { box.classList.remove('dash-skeleton'); failLine(box); } return; }
+    box.classList.remove('dash-skeleton');
+    const rows = d.data.map((r) => ({
+      date: new Date(String(r.month).slice(0, 7) + '-01T00:00:00Z'), month: String(r.month).slice(0, 7),
+      lights: +r.lights, ex: +r.excluded === 1, rec: +r.recession === 1,
+      on: LIGHTS.filter((k) => +r[k.key] === 1).map((k) => k.name)
+    }));
+    const W = Math.max(280, box.clientWidth || 640);
+    const H = Math.round(Math.max(200, Math.min(300, W * 0.36)));
+    const m = { t: 12, r: 10, b: 26, l: 26 };
+    const x0 = rows[0].date, x1 = d3.utcMonth.offset(rows[rows.length - 1].date, 1);
+    const x = d3.scaleUtc([x0, x1], [m.l, W - m.r]);
+    const y = d3.scaleLinear([0, 6], [H - m.b, m.t]);
+    const svg = d3.select(box).append('svg').attr('width', '100%').attr('viewBox', `0 0 ${W} ${H}`)
+      .attr('role', 'img').attr('aria-label', '1968 年以來每個月亮幾燈');
+    const spans = [];
+    rows.forEach((r) => {
+      if (r.rec) {
+        const last = spans[spans.length - 1];
+        if (last && +d3.utcMonth.offset(last.end, 1) === +r.date) last.end = r.date; else spans.push({ start: r.date, end: r.date });
+      }
+    });
+    svg.append('g').selectAll('rect').data(spans).join('rect')
+      .attr('x', (s) => x(s.start)).attr('width', (s) => Math.max(1, x(d3.utcMonth.offset(s.end, 1)) - x(s.start)))
+      .attr('y', m.t).attr('height', H - m.t - m.b).style('fill', 'var(--cds-chart-grid)').style('opacity', 0.9);
+    const grid = svg.append('g');
+    [0, 3, 6].forEach((v) => {
+      grid.append('line').attr('x1', m.l).attr('x2', W - m.r).attr('y1', y(v)).attr('y2', y(v))
+        .style('stroke', v === 3 ? 'var(--cds-chart-reference)' : 'var(--cds-chart-grid)').style('stroke-width', 1)
+        .attr('stroke-dasharray', v === 3 ? '4 3' : null);
+      grid.append('text').attr('x', m.l - 6).attr('y', y(v)).attr('dy', '0.32em').attr('text-anchor', 'end')
+        .style('fill', 'var(--color-fg-muted)').style('font-size', 'var(--cds-font-size-caption)').text(String(v));
+    });
+    const bw = Math.max(1, (W - m.l - m.r) / rows.length);
+    svg.append('g').selectAll('rect').data(rows.filter((r) => r.lights > 0)).join('rect')
+      .attr('x', (r) => x(r.date)).attr('width', bw).attr('y', (r) => y(r.lights)).attr('height', (r) => y(0) - y(r.lights))
+      .style('fill', (r) => (r.ex ? 'var(--cds-chart-muted)' : r.lights >= 3 ? 'var(--cds-chart-status-critical)' : dash.colors[0]))
+      .style('opacity', (r) => (r.ex ? 0.55 : r.lights >= 3 ? 1 : r.lights === 2 ? 0.85 : 0.45));
+    const step = W < 520 ? 20 : 10;
+    const ax = svg.append('g').attr('transform', `translate(0,${H - m.b})`)
+      .call(d3.axisBottom(x).ticks(d3.utcYear.every(step)).tickFormat(d3.utcFormat('%Y')).tickSizeOuter(0));
+    axisStyle(ax);
+    const tip = document.createElement('div'); tip.className = 'sl-tip'; tip.hidden = true; box.appendChild(tip);
+    const hover = svg.append('rect').attr('x', m.l).attr('width', bw + 1).attr('y', m.t).attr('height', H - m.t - m.b)
+      .style('fill', 'var(--color-fg)').style('opacity', 0);
+    const bis = d3.bisector((r) => r.date).left;
+    svg.append('rect').attr('x', m.l).attr('y', m.t).attr('width', W - m.l - m.r).attr('height', H - m.t - m.b)
+      .style('fill', 'transparent').style('cursor', 'crosshair')
+      .on('pointermove', (ev) => {
+        const [px] = d3.pointer(ev);
+        const i = Math.min(rows.length - 1, Math.max(0, bis(rows, x.invert(px)) - 1));
+        const r = rows[i];
+        hover.attr('x', x(r.date)).style('opacity', 0.12);
+        tip.textContent = '';
+        const dl = document.createElement('div'); dl.className = 'sl-tip-date'; dl.textContent = r.month;
+        const l1 = document.createElement('div'); l1.textContent = `亮 ${r.lights} 燈` + (r.ex ? '（不計）' : '') + (r.rec ? '｜衰退中' : '');
+        const l2 = document.createElement('div'); l2.textContent = r.on.length ? r.on.join('、') : '全暗';
+        tip.append(dl, l1, l2);
+        tip.hidden = false;
+        const bx = box.getBoundingClientRect();
+        const sx = bx.width / W;
+        let left = x(r.date) * sx + 12;
+        if (left + tip.offsetWidth > bx.width) left = x(r.date) * sx - tip.offsetWidth - 12;
+        tip.style.left = Math.max(0, left) + 'px';
+        tip.style.top = (m.t * sx) + 'px';
+      })
+      .on('pointerleave', () => { tip.hidden = true; hover.style('opacity', 0); });
+  }
+
+  function drawOdds() {
+    const box = document.getElementById('oddschart');
+    const d = dash.data('odds');
+    box.textContent = '';
+    if (d.status !== 'ok') { if (bad(d.status)) { box.classList.remove('dash-skeleton'); failLine(box); } return; }
+    box.classList.remove('dash-skeleton');
+    const rows = d.data.map((r) => ({ key: String(r.lights), label: String(r.lights) === '3+' ? '3 燈以上' : `${r.lights} 燈`, v: +r.recession_pct }));
+    const W = Math.max(260, box.clientWidth || 420);
+    const rowH = 30, m = { t: 6, r: 44, b: 6, l: 64 };
+    const H = m.t + m.b + rows.length * rowH;
+    const x = d3.scaleLinear([0, 100], [m.l, W - m.r]);
+    const y = d3.scaleBand(rows.map((r) => r.key), [m.t, H - m.b]).padding(0.28);
+    const svg = d3.select(box).append('svg').attr('width', '100%').attr('viewBox', `0 0 ${W} ${H}`)
+      .attr('role', 'img').attr('aria-label', '亮幾燈與之後一年衰退的比例');
+    svg.append('g').selectAll('rect').data(rows).join('rect')
+      .attr('x', m.l).attr('y', (r) => y(r.key)).attr('height', y.bandwidth()).attr('rx', 4)
+      .attr('width', (r) => Math.max(2, x(r.v) - m.l))
+      .style('fill', (r) => (r.key === '3+' ? 'var(--cds-chart-status-critical)' : r.key === '2' ? dash.colors[0] : 'var(--cds-chart-muted)'));
+    svg.append('g').selectAll('text').data(rows).join('text')
+      .attr('x', m.l - 8).attr('y', (r) => y(r.key) + y.bandwidth() / 2).attr('dy', '0.32em').attr('text-anchor', 'end')
+      .style('fill', 'var(--color-fg)').style('font-size', 'var(--cds-font-size-caption)').text((r) => r.label);
+    svg.append('g').selectAll('text').data(rows).join('text')
+      .attr('x', (r) => x(r.v) + 6).attr('y', (r) => y(r.key) + y.bandwidth() / 2).attr('dy', '0.32em')
+      .style('fill', 'var(--color-fg)').style('font-size', 'var(--cds-font-size-caption)').text((r) => `${r.v}%`);
+  }
+
+  dash.onData(() => {
+    fillSingles();
+    drawLights();
+    drawTimeline();
+    drawOdds();
+    fillTable('oddstable', 'odds', ['recession_pct', 'early_pct', 'late_pct', 'drop20_pct', 'months']);
+    fillTable('rectable', 'recessions', ['max_lights', 'lead_months']);
+    fillTable('alarmtable', 'alarms', ['model_low_pct', 'model_high_pct']);
+  });
+
+  const named = document.getElementById(location.hash.slice(1));
+  if (named) setTimeout(() => { named.scrollIntoView(); dash.setLink(named.id); }, 300);
+})();
+</script>
