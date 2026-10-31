@@ -1,0 +1,226 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>泡沫是估值的膨脹，不是需求的不存在｜德克 mur mur</title><meta name="description" content="網路泡沫續篇。把泡沫拆成需求、燃料、參與、硬體、估值五層，逐層比 2000 年與 2026 年：哪些地方可以比、哪些不能比。"><meta property="og:title" content="泡沫是估值的膨脹，不是需求的不存在｜德克 mur mur"><meta property="og:type" content="article"><meta property="og:url" content="https://dirkncku-code.github.io/six-lights/r/bubble-is-valuation/"><meta property="og:image" content="https://dirkncku-code.github.io/six-lights/og.png"><style>
+:root{--bg:#f7f4ea;--paper:#fff;--fg:#3e3d34;--muted:#6f6e63;--line:#e3dfd0;--brand:#787a75;--brand-deep:#6f736d;
+--peach:#e2dcc0;--stripe:#faf8f1;--accent:#b5574a;--blue:#5f7f95;
+--sans:system-ui,-apple-system,"Segoe UI","Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif;--r:10px}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:16px;line-height:1.7}
+a{color:var(--brand-deep)}
+.nav{background:#5f625d;color:#fff;line-height:1.6}
+.nav-in{max-width:68rem;margin-inline:auto;padding:.5rem 16px;display:flex;flex-wrap:wrap;align-items:center;gap:.4rem 1rem}
+.brand{font-weight:800;font-size:1.05rem;letter-spacing:.04em;color:#fff;text-decoration:none;margin-right:.5rem}
+.tabs{display:flex;gap:.3rem;flex-wrap:wrap}
+.tab{color:#fff;text-decoration:none;padding:.25rem .8rem;border-radius:999px;font-size:.92rem;opacity:.85}
+.tab:hover{background:rgba(255,255,255,.12);opacity:1}
+.tab.on{background:#fff;color:var(--brand-deep);font-weight:700;opacity:1}
+.topbar{background:var(--brand);color:#fff;line-height:1.6}
+.topbar-in{max-width:68rem;margin-inline:auto;padding:1.1rem 16px 1.2rem}
+.topbar h1{margin:0;font-size:clamp(1.5rem,4.5vw,2.1rem);font-weight:800;letter-spacing:.04em}
+.topbar p{margin:.2rem 0 0;font-size:.9rem;opacity:.95}
+.wrap{max-width:68rem;margin-inline:auto;padding:1.4rem 16px 3rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,19rem),1fr));gap:.9rem}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:.9rem 1rem;text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:.35rem;min-width:0}
+.card:hover{border-color:var(--brand)}
+.card-top{display:flex;gap:.5rem;align-items:center;font-size:.8rem;color:var(--muted)}
+.type{font-size:.75rem;font-weight:700;color:#fff;border-radius:4px;padding:0 .45rem;background:var(--blue)}
+.card h3{margin:0;font-size:1.05rem;line-height:1.45}
+.gist{margin:0;font-size:.88rem;color:var(--muted);line-height:1.6}
+.tags{display:flex;flex-wrap:wrap;gap:.3rem}
+.tag-chip{font-size:.75rem;color:var(--brand-deep);border:1px solid var(--line);border-radius:999px;padding:0 .5rem;background:var(--stripe)}
+.art{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:1.4rem clamp(1rem,4vw,2.4rem);max-width:46rem;margin-inline:auto}
+.art h1{margin:.3rem 0 .4rem;font-size:clamp(1.35rem,4vw,1.8rem);line-height:1.4}
+.meta{color:var(--muted);font-size:.85rem}
+.body{font-size:1.02rem;line-height:1.9;margin-top:1.2rem;overflow-wrap:anywhere}
+.body h2{font-size:1.2rem;margin:2.2em 0 .5em;padding:.45rem .8rem;background:var(--peach);border-radius:8px;line-height:1.4}
+.body h3{font-size:1.05rem;margin:1.6em 0 .3em}
+.body p{margin:.7em 0}
+.body img{display:block;max-width:100%;height:auto;margin:1.2em auto .3em;border:1px solid var(--line);border-radius:6px;background:#fff}
+.body p.cap{font-size:.9rem;line-height:1.7;color:#4a5059;margin:.2em 0 1.4em}
+.body blockquote{margin:1.2em 0;padding:.4em 1.1em;background:#f6e3de;border-left:4px solid var(--accent);border-radius:0 6px 6px 0}
+.body blockquote ol{padding-left:1.3em}
+.body table{border-collapse:collapse;width:100%;font-size:.92rem;margin:1em 0}
+.body th,.body td{border-bottom:1px solid var(--line);padding:.45rem .6rem;text-align:left}
+.body th{color:var(--muted);font-size:.85rem}
+.body hr{border:0;border-top:1px solid var(--line);margin:2.4em 0 1em}
+.back{display:inline-block;margin-bottom:.8rem;text-decoration:none;font-size:.9rem}
+.disclaimer{margin-top:2.4rem;color:var(--muted);font-size:.82rem;border-top:1px solid var(--line);padding-top:1rem}
+</style></head><body><nav class="nav"><div class="nav-in"><a class="brand" href="../../articles.html">德克 mur mur</a><nav class="tabs"><a class="tab" href="../../articles.html">文章</a><a class="tab on" href="../../reports.html">研究報告</a><a class="tab" href="../.././">景氣衰退領先指標</a></nav></div></nav><header class="topbar"><div class="topbar-in"><h1>德克 mur mur</h1><p>研究報告</p></div></header><div class="wrap"><div class="art"><a class="back" href="../../reports.html">← 研究報告</a><h1>泡沫是估值的膨脹，不是需求的不存在</h1><div class="meta">2026-10-31　研究報告</div><div class="tags" style="margin-top:.5rem"><span class="tag-chip">AI泡沫</span><span class="tag-chip">網路泡沫</span><span class="tag-chip">私募信貸</span></div><div class="body"><p>網路泡沫續篇。把泡沫拆成需求、燃料、參與、硬體、估值五層，逐層比 2000 年與 2026 年：哪些地方可以比、哪些不能比。</p>
+<p>上一篇〈<a href="https://vocus.cc/article/6ae3637cfd8978000136f27d">AI 會是下一個網路泡沫嗎？</a>〉的結論是：問題收斂成「2027 年的盈餘成長能不能實現」。2000 年是估值的泡沫，2026 年是盈餘的依賴。這一篇往下拆：泡沫的本質到底是什麼。</p>
+<blockquote>
+<p><strong>結論：需求與硬體獲利比 2000 年紮實；燃料與參與的規模不輸當年，但形狀不同；為想像付錢的程度，遠低於 2000 年。</strong></p>
+<ol>
+<li><strong>需求擴散比當年快。</strong>企業付費使用 AI 的比例一年多 12 個百分點、還在加速；網路當年每年多 6～10 點，而且在崩盤那三年也沒有慢下來。</li>
+<li><strong>燃料：上市公司的帳面健康，表外的規模到了 2007 年那一級。</strong>四大雲端的表外承諾約 2.4 兆美元、約占 GDP 7.3%；差別是大部分黏在付得起的 AA 級公司與長期資金上。付不起的那一小塊（高槓桿新雲）已經在被定價。</li>
+<li><strong>參與：廣度超過 2000 年，方式不同。</strong>家庭股票配置 48.2%（2000 年 38.7%），但融資餘額相對股市低於 2000 年。擁擠是退休帳戶與指數被動集中，不是借錢追新股。</li>
+<li><strong>硬體獲利比當年厚得多。</strong>族群淨利率 55.7%，1999 年 12.4%。它是收錢的一方，風險是盈餘跟著投資潮掉，不是估值。</li>
+<li><strong>估值：股價超過營收 20 倍的公司，2000 年至少占大型股市值 12%，現在 3.2%。</strong></li>
+</ol>
+</blockquote>
+<h2>00｜先釐清：泡沫的本質是什麼</h2>
+<p>2000～2002 年那斯達克跌了近八成。同一段時間，美國上網人口占比每年還多 6～10 個百分點。需求是真的，錯在價格把十年後的需求先買完了。</p>
+<p>我們對泡沫的定義：真實的新技術，加上容易理解的未來，再加上難以理解的金融創新。投資人過度外推，造成過度投資、擁擠交易、風險溢酬下降，最後相信價格會一直漲。</p>
+<p>所以不能只問「需求在不在」，要分開量五層：</p>
+<ul>
+<li><strong>需求是基底</strong>：需求有沒有擴散。</li>
+<li><strong>燃料</strong>：錢從哪來、為什麼這麼容易，難以理解的金融創新有多大、連在誰身上。</li>
+<li><strong>參與</strong>：誰在買、用什麼方式進場。</li>
+<li><strong>硬體是受害者</strong>：收錢的一方賺得多厚。</li>
+<li><strong>估值才是泡沫本身</strong>：成交價格為想像付了多少錢。</li>
+</ul>
+<h2>01｜需求：擴散比當年快，而且需求擋不住泡沫破</h2>
+<p>網路在泡沫破裂那三年，上網人口占比每年仍多 6～10 點，沒有變慢。AI 的企業付費採用一年多 12 點、還在加速。需求這一層，AI 不輸當年。但這也說明：需求成長從來不是泡沫不會破的理由。</p>
+<p><img alt="美國網路使用者占人口，對照企業付費使用 AI 的比例" src="c13_diffusion.png" /></p>
+<p class="cap">▲ 網路：World Bank（美國上網人口占比）。AI：資料：財經M平方 轉載 Ramp（企業付費使用 AI，樣本偏科技導向的中小企業）、Census BTOS（全國抽樣，2025-11 改題）。分母不同（人口對企業），只比速度與方向。價格也不能用來區分兩個時代：網路頻寬在泡沫年每年跌 16～41%，破裂後 2003～2015 年仍每年跌 17～52%，是技術通縮的常態（DrPeering）。</p>
+<h2>02｜燃料：帳面上的錢來自現金流，表外的規模到 2007 年那一級</h2>
+<p>只看上市公司的帳面：2000 年建設者整體花的比賺的多（資本支出是營業現金流的 126%）；現在整體在現金流以內（93%），因為四大雲端用自己的錢付了大部分。借錢建設那一層，投資強度和 2000 年一樣（資本支出 ÷ 市值都約 21%）。</p>
+<p><img alt="建設者族群：資本支出除以營業現金流與市值，2000 對 AI 時代" src="c03g_builders_group.png" /></p>
+<p class="cap">▲ 借錢蓋那層：2000 年 WorldCom、Qwest、Global Crossing、Level 3；AI 時代 Oracle、CoreWeave、Nebius。有本業的大公司：2000 年地區電信；AI 時代四大雲端。2000 年各公司 10-K；AI 時代 SEC 近四季。2000 年用崩盤後的年底市值，分母已縮小，21.1% 是偏高的估計。</p>
+<p><strong>但這次「難以理解的金融創新」在表外。</strong>算進來，面積並不小：</p>
+<table>
+<thead>
+<tr>
+<th>燃料</th>
+<th>占 GDP</th>
+<th>資金期限</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2000 供應商融資</td>
+<td>約 0.13%</td>
+<td>設備商自己出</td>
+</tr>
+<tr>
+<td>2007 資產擔保商業本票</td>
+<td>約 8.5%</td>
+<td>短期，會擠兌</td>
+</tr>
+<tr>
+<td>2026 雲端表外承諾</td>
+<td>約 7.3%</td>
+<td>長期資金</td>
+</tr>
+</tbody>
+</table>
+<p>2026 年的 2.4 兆是四大雲端未生效的租約（約 9,040 億）加上晶片採購承諾（約 1.52 兆），債務人大部分是 AA 級公司。新形式的樣本是 Meta 的 Hyperion 專案公司：負債約占資產 90%、償債倍數 1.12，評等卻是 A+，因為靠的是 Meta 的租約與殘值保證，而這兩項生效前都不入 Meta 的資產負債表。</p>
+<p><strong>誰付帳單。</strong>2000 年簽光纖長約的新興電信，是拿創投和垃圾債的錢付「現在」的帳單。這次簽算力承諾的模型公司不一樣：Anthropic 2026 年上半年算力費用占營收 55%、營業現金流 ＋39 億美元，現在的帳單是客戶付的。但它的不可取消算力承諾約 2,656 億，是年化營收的 8 倍，那一段要靠營收繼續高成長與投資人的錢。</p>
+<p><strong>最弱的一環已經在被定價，整體反而很放心。</strong>CoreWeave 的五年期信用違約交換（CDS）超過 1,000 基點；Oracle 一筆 180 億美元的專案貸款賣不出去，報價 89～91 美分。但 Baa 公司債利差 1.46%，比 1997 年泡沫前還窄。1999～2000 年的信用市場其實比現在謹慎（利差 2.1～2.6%），沒警覺的是股市。這次的警覺集中在上次出事的那一類，風險溢酬最薄的是高評等的表外結構。</p>
+<p><strong>銀行與保險直接持有的部分吃不垮。</strong>壽險業 AI 相關投資 852 億美元，約為業界資本的 16%；大型銀行對 AI 相關產業的實際放款約占第一類資本 9%。要盯的是兩條管道：專案貸款賣不出去留在銀行表上（已有一筆），以及銀行借給私募信貸基金的錢。</p>
+<p><strong>金絲雀死了之後。</strong>新雲倒閉，產能不會消失，會打折轉手。若只是資金問題（情境 A，目前的跡象），使用者拿到更便宜的算力；若需求同時轉弱、每 token 成本下降比需求成長快（情境 B），舊世代 GPU 租金會崩，拖累所有以 GPU 為擔保的融資。分辨的指標是舊世代 GPU 的續租價加上使用率。</p>
+<h2>03｜參與：廣度超過 2000 年，進場方式不同</h2>
+<p>2000 年是散戶當沖、融資追新股。現在是退休帳戶與指數基金每月固定買進，自動集中到市值最大的公司。所以「擁擠交易」這次的形狀是指數集中度，不是融資；崩跌時被迫賣出的槓桿壓力，可能比 2000 年小。</p>
+<p><img alt="股票占美國家庭金融資產比例，1952～2026" src="c15_household_equity.png" /></p>
+<p class="cap">▲ Fed Z.1（FRED BOGZ1FL153064486Q），家庭直接與間接（含基金、退休帳戶）持有的公司股票 ÷ 金融資產。2006 年後退休帳戶自動加入，一部分配置是制度造成的；股價上漲本身也會推高比例。</p>
+<table>
+<thead>
+<tr>
+<th>參與的量尺</th>
+<th>2000 年</th>
+<th>現在</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>家庭股票配置</td>
+<td>38.7%</td>
+<td>48.2%</td>
+</tr>
+<tr>
+<td>前十大占 S&amp;P 500</td>
+<td>約 26～29%</td>
+<td>約 38～41%</td>
+</tr>
+<tr>
+<td>融資餘額 ÷ 股權市值</td>
+<td>1.43%</td>
+<td>1.21%</td>
+</tr>
+<tr>
+<td>IPO 市值 ÷ 股市</td>
+<td>4.2～4.4%</td>
+<td>約 3%</td>
+</tr>
+</tbody>
+</table>
+<p>非泡沫年代的對照：家庭股票配置 1952～1994 年中位數 20%；融資餘額 1997 年以來中位數 1.19%。2026 年的 IPO 市值裡，SpaceX 一家就占 2.7 個百分點，扣掉後約 0.4%。前十大集中度各家算法不同（二手：JPMorgan、Mauboussin），前十大約賺指數盈餘的 32%，集中有一部分是盈餘集中。</p>
+<h2>04｜硬體：獲利是真的，比 1999 年厚 4.5 倍</h2>
+<p>硬體族群的營收倍數 15.2，已超過 1999 年的 12.1；本益比卻只有 27，因為本益比＝營收倍數 ÷ 淨利率。當年硬體股自己就是泡沫（1999 年族群本益比 98），現在硬體股是收錢的一方。</p>
+<p><img alt="硬體族群淨利率，1998～2001 對 2023～最新" src="c02c_margin.png" /></p>
+<p class="cap">▲ 網路時代 8 家（思科、英特爾、Lucent、Nortel、EMC、JDSU、康寧、Sun，10-K）對 AI 時代 5 家（輝達、博通、AMD、美光、台積電，yfinance 近四季），加總後相除。反過來看風險：這個淨利率來自別人的資本支出；淨利率回到 2023 年的 24%，同樣的股價就是 63 倍本益比。美光淨利率 64% 是它歷史最高，剔除後族群本益比 31，結論不變。</p>
+<h2>05｜估值：為想像付錢的程度，遠低於 2000 年</h2>
+<p>前幾層量的是需求、資金與獲利；這一層量的才是泡沫本身：成交價格願意為想像付多少錢。</p>
+<p><img alt="營收倍數超過 20 倍的公司占 S&amp;P 500 市值，2000 年 3 月對 2026 年 10 月" src="c17_ps20_share.png" /></p>
+<p class="cap">▲ 2000 年 3 月底，光是微軟（24.4 倍）、思科（35.8 倍）、甲骨文（22.8 倍）、高通（28.3 倍）四家，就合計占 S&amp;P 500 市值約 12%。股數與近四季營收取自各公司 2000 年 10-Q、10-K（SEC），分母總市值以 12.2 兆美元估（11.8～12.6 兆）。只算仍上市、可回溯的四家；Yahoo、AOL、JDSU、EMC 等已下市者未計，實際比例更高。2026 年：S&amp;P 500 全部 502 家，yfinance 市值 ÷ 近四季營收，作者自算。</p>
+<p>新股市場也一樣：科技股 IPO 上市時的營收倍數中位數，1999 年 43 倍、2025 年 13.7 倍；IPO 首日平均漲幅，1999 年 71%、2025 年 29%（Jay Ritter）。連 2021 年那一波（17.8 倍、32%）都比現在熱。</p>
+<h2>06｜可以比的與不能比的</h2>
+<h3>可以比，而且和當年一樣</h3>
+<ul>
+<li>借錢建設那一層的投資強度</li>
+<li>信用利差在高點前最窄</li>
+<li>家庭股票配置與前十大集中度創新高</li>
+<li>表外的燃料規模到 2007 年那一級</li>
+<li>巨型 IPO 吸收的資金規模接近 1999 年</li>
+</ul>
+<h3>不能直接比，或明顯不同</h3>
+<ul>
+<li>硬體龍頭當年本身是泡沫，現在是收錢的一方</li>
+<li>IPO 是一家巨型，不是幾百家一起</li>
+<li>需求的分母不同：人口對企業</li>
+<li>燃料黏在 AA 級雲端與長期資金上，不是會擠兌的短期資金</li>
+<li>模型公司現在的算力帳單由營收支付；2000 年的新興電信靠創投付帳</li>
+<li>模型公司大多還沒上市，壓力看不到</li>
+</ul>
+<h2>07｜接下來看的五個訊號</h2>
+<p>五層各留一個最直接的訊號。門檻是作者設定的，沒有經過歷史回測。</p>
+<table>
+<thead>
+<tr>
+<th>訊號</th>
+<th>現況</th>
+<th>轉壞的樣子</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>營收倍數 20 倍占比</td>
+<td>3.2%</td>
+<td>超過 10%</td>
+</tr>
+<tr>
+<td>雲端資本支出年增</td>
+<td>仍在增加</td>
+<td>低於 10%</td>
+</tr>
+<tr>
+<td>CoreWeave CDS</td>
+<td>1,000 基點以上</td>
+<td>延後付息或違約</td>
+</tr>
+<tr>
+<td>ANT 算力費用占營收</td>
+<td>55%</td>
+<td>回升</td>
+</tr>
+<tr>
+<td>舊世代 GPU 租金</td>
+<td>跌、使用率高</td>
+<td>跌且閒置增加</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>估值</strong>：營收倍數 20 倍以上的大型股占比。2000 年至少 12%，超過 10% 就接近當年。每季看一次。</li>
+<li><strong>硬體</strong>：大型雲端資本支出的年增率。掉到 10% 以下，硬體淨利率就會開始回落。每季看一次。</li>
+<li><strong>燃料</strong>：CoreWeave 的 CDS 與 2032 年到期的債券（約 78 美分）。它是高槓桿新雲的金絲雀；債券跌破 60 美分或延後付息，代表最弱的一環開始斷。</li>
+<li><strong>付帳者</strong>：Anthropic 的算力費用占營收比例。回升，代表收入追不上承諾。每季看一次。</li>
+<li><strong>需求與供給的距離</strong>：舊世代 GPU 的續租價加上使用率。租金跌但使用率高是資金問題（情境 A）；閒置增加是需求跟不上（情境 B）。每月看一次。</li>
+</ul>
+<p>更短的心法、方法與盤感，我寫在粉專，入口在這裡：<a href="https://www.facebook.com/profile.php?id=61571663936725&amp;locale=zh_TW">德克 mur mur 粉專</a>。</p>
+<hr />
+<p><strong>資料與限制。</strong></p>
+<p>一手：Jay Ritter〈Initial Public Offerings: Updated Statistics〉（2026-10-05）、World Bank、FRED（含 Fed Z.1、Baa 利差、資產擔保商業本票）、FINRA 融資餘額、2000～2001 年各公司 10-Q 與 10-K、SEC XBRL、Anthropic S-1、SpaceX 10-Q（2026 年第三季）、Chicago Fed、Fed 金融穩定報告（2026-05）、NAIC。</p>
+<p>學術：Van Nieuwerburgh〈Financing the AI Buildout〉（Brookings Papers on Economic Activity，2026-09 會議稿，引 WSJ、Moody's）。通訊社：Reuters（2026-09-18、10-15）。</p>
+<p>第三方：Ramp、Census BTOS（經財經M平方）、yfinance、DrPeering、Moody's（經媒體轉述）、JPMorgan 與 Mauboussin（集中度）。</p>
+<p>作者自算：2000 年與 2026 年營收倍數占比、IPO 市值占比、族群合計。</p>
+<p>已知缺口：2000 年 3 月 S&amp;P 500 總市值是估計值；2000 年供應商融資為二手、年份不精確；表外承諾各類互相重疊，不能加總；銀行借給私募信貸基金的錢裡 AI 占多少只能粗估。</p>
+<p>本文只整理資料與推論，不是投資建議。</p>
+<p>延伸閱讀：<a href="https://vocus.cc/article/6ae3637cfd8978000136f27d">上一篇：AI 會是下一個網路泡沫嗎？</a> · <a href="https://site.warrington.ufl.edu/ritter/files/IPO-Statistics.pdf">Jay Ritter：IPO Statistics</a> · <a href="https://www.brookings.edu/wp-content/uploads/2026/09/4c_Van-Nieuwerburgh.pdf">Van Nieuwerburgh：Financing the AI Buildout</a> · <a href="https://drpeering.net/HTML_IPP/chapters/ch02-Internet-Transit/ch02.1-Internet-Transit-Prices.html">DrPeering：頻寬價格歷史</a></p></div><p class="disclaimer">德克 mur mur｜研究整理，不構成任何投資建議。資料來源與限制見文末。</p></div></div></body></html>
