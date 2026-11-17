@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light">
-<title>台股景氣下行燈</title>
-<meta name="description" content="外銷訂單、記憶體原廠營收與加權指數的現況。預警結論已撤回，頁面改版中：改成修正發生時判讀「普通修正或製造業長期修正」。每月更新。">
-<meta property="og:title" content="台股景氣下行燈｜德克 mur mur">
-<meta property="og:description" content="台股需求燈現況；原本的預警結論已撤回，改版中。每月更新。">
+<title>台股修正現況</title>
+<meta name="description" content="不先知先覺，但不後知後覺：台股現在離高點多遠、在不在年線上，歷史上跌到這個深度之後怎麼走。為什麼找不到台股的領先指標。每月更新。">
+<meta property="og:title" content="台股修正現況｜德克 mur mur">
+<meta property="og:description" content="找不到可靠的台股領先指標，所以改看現況：離高點多遠、年線、歷史比例。每月更新。">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://dirkncku-code.github.io/six-lights/taiwan.html">
 <meta property="og:image" content="https://dirkncku-code.github.io/six-lights/taiwan_history.png">
@@ -122,7 +122,7 @@ body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--sans);font-
 .sl ul{margin:0;padding-left:1.2rem;display:flex;flex-direction:column;gap:.4rem;line-height:1.7}
 .disclaimer{margin:0;color:var(--muted);font-size:.85rem;line-height:1.7;border-top:1px solid var(--line);padding-top:1rem}
 </style>
-<style>.std{background:#fff;border-left:4px solid var(--brand);padding:.8rem 1rem;margin:0;line-height:1.8} .fig img{display:block;width:100%;height:auto;border-radius:6px} .sl td.l{text-align:left;white-space:normal}</style>
+<style>.std{background:#fff;border-left:4px solid var(--brand);padding:.8rem 1rem;margin:0;line-height:1.8} .fig img{display:block;width:100%;height:auto;border-radius:6px} .sl td.l{text-align:left;white-space:normal} .sl ol,.sl ul{margin:0;padding-left:1.3em;line-height:1.8}</style>
 </head>
 <body>
 <nav class="nav">
@@ -132,70 +132,72 @@ body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--sans);font-
       <a class="tab" href="articles.html">文章</a>
       <a class="tab" href="reports.html">研究報告</a>
       <a class="tab" href="./">景氣衰退領先指標</a>
-      <a class="tab on" href="taiwan.html">台股景氣下行燈</a>
+      <a class="tab on" href="taiwan.html">台股修正現況</a>
     </div>
   </div>
 </nav>
 <header class="topbar">
   <div class="topbar-in">
-    <h1>台股景氣下行燈</h1>
+    <h1>台股修正現況</h1>
     <div class="topbar-right">
       <a class="fb-btn" href="https://www.facebook.com/profile.php?id=61571663936725" target="_blank" rel="noopener">德克 mur mur 粉專 →</a>
-      <p>外銷訂單＋記憶體營收｜資料更新：<span id="built">2026-11-16</span></p>
+      <p>加權指數 2026-11-17｜資料更新：<span id="built">2026-11-17</span></p>
     </div>
   </div>
 </header>
 <main class="sl">
-  <p class="take">現在的判讀：<b>正常（需求燈全暗、季線未失守）</b>。雙源未亮；外銷訂單燈距亮燈 -21%，記憶體原廠燈距亮燈 -56%。</p>
-  <p class="sub"><b>2026-11-16 更正：原本「雙源亮燈＝提高警覺」的預警結論已撤回，頁面改版中。</b>目的改成不要後知後覺：修正已經發生時，用需求面判斷這次比較像普通修正，還是製造業循環的長期修正（加權從高點跌 25% 以上、超過 150 天）。燈號是量尺，不是預言，也不構成投資建議。</p>
+  <p class="take">現在：<b>修正中，還在年線上（離高點 −19.5%）</b>。</p>
+  <p class="sub">不先知先覺，但不後知後覺。台股找不到能提早預警的指標（原因見下方），所以這一頁不預測高點，只回答兩件事：<b>現在跌多深</b>，以及<b>歷史上跌到這個深度之後通常怎麼走</b>。這是量尺，不是預言，也不構成投資建議。</p>
 
   <section class="tiles" aria-label="現在的讀數">
-    <div class="tile"><span class="tile-label">雙源（預警已撤回）</span><span class="big">暗</span><span class="tile-label">3 個月內訂單燈、原廠燈都亮</span></div>
-    <div class="tile"><span class="tile-label">外銷訂單燈</span><span class="big">-21%</span><span class="tile-label">距亮燈（資料 2026-09）</span></div>
-    <div class="tile"><span class="tile-label">記憶體原廠燈</span><span class="big">-56%</span><span class="tile-label">距亮燈（資料 2026-10）</span></div>
-    <div class="tile"><span class="tile-label">季線失守（修正開始）</span><span class="big">否</span><span class="tile-label">季線下 13 天，斜率 +0.31%</span></div>
+<div class="tile"><span class="tile-label">離 52 週高點</span><span class="big">−19.5%</span><span class="tile-label">加權 40,092，52 週高 49,823</span></div>
+<div class="tile"><span class="tile-label">離年線</span><span class="big">+2.1%</span><span class="tile-label">年線 39,266（還在上方）</span></div>
+<div class="tile"><span class="tile-label">季線失守</span><span class="big">是</span><span class="tile-label">季線下 14 天，斜率 -0.02%</span></div>
+<div class="tile"><span class="tile-label">MM 台灣衰退機率</span><span class="big">0.15%</span><span class="tile-label">資料月 2026-10（≥50% 才算衰退確認）</span></div>
   </section>
 
-  <section class="card"><h2 class="card-h">現在的 5 個燈</h2><div class="card-b">
-    <div class="legend"><span><i class="dot on"></i>亮燈</span><span><i class="dot off"></i>未亮</span></div>
-    <div class="lights"><div class="light"><div class="light-top"><i class="dot off"></i><span class="light-name"><span class="ord">①</span>外銷訂單燈</span><span class="light-state">未亮</span></div>
-<span class="reading">距亮燈 -21%</span><p class="why">外銷訂單去掉季節性後，假設金額不再成長，推算年增率 4 個月內轉負就亮：代表訂單成長停了。</p><p>經濟部外銷訂單，資料到 2026-09；每月 20 日左右公布</p></div>
-<div class="light"><div class="light-top"><i class="dot off"></i><span class="light-name"><span class="ord">②</span>記憶體原廠燈</span><span class="light-state">未亮</span></div>
-<span class="reading">距亮燈 -56%</span><p class="why">南亞科、華邦電、旺宏三家合計月營收，用同樣的方法：合約價與出貨停止成長就亮。</p><p>公開資訊觀測站月營收，資料到 2026-10；每月 10 日前公布</p></div>
-<div class="light"><div class="light-top"><i class="dot off"></i><span class="light-name"><span class="ord">①＋②</span>雙源（預警已撤回）</span><span class="light-state">未亮</span></div>
-<span class="reading">未亮</span><p class="why">3 個月內①②都亮。⚠️ 原本「預警」的結論已撤回（見下方更正）；目前定義在谷底回升時也會亮，只當需求現況參考。</p><p>最近一次亮燈：2025-06-19</p></div>
-<div class="light"><div class="light-top"><i class="dot off"></i><span class="light-name"><span class="ord">價</span>季線失守（修正開始）</span><span class="light-state">未亮</span></div>
-<span class="reading">季線下 13 天｜斜率 +0.31%</span><p class="why">加權收盤在 60 日線下連續 10 天，而且 60 日線往下彎。代表正在修正，但分不出會修多久。</p><p>加權指數 41917.9（2026-11-16）</p></div>
-<div class="light"><div class="light-top"><i class="dot off"></i><span class="light-name"><span class="ord">確</span>訂單腰斬或轉負（確認）</span><span class="light-state">未亮</span></div>
-<span class="reading">年增 3 月均 +65.2%</span><p class="why">外銷訂單年增率（3 個月平均）掉到近 6 個月高點的一半（目前 +32.6%）以下，或轉負。很少亂亮，但大跌時往往已經跌了三分之二。</p><p>經濟部外銷訂單，資料到 2026-09</p></div></div>
-  </div></section>
-
-  <section class="card"><h2 class="card-h">更正：預警結論撤回（2026-11-16）</h2><div class="card-b">
-    <p class="std">本頁上線時寫「雙源亮燈後，歷史上約五成半在 6 個月內出現長期修正」。複查發現這個燈的定義在<b>谷底回升</b>時也會亮（例如 2023 年），把這些情況排除後，只算「高點附近停止成長」的亮燈，6 個月內出現長期修正的比例約 <b>36%～46%</b>，隨便挑一天約 23%。差距太小、樣本只有 2007 年後 3 次，不足以稱為預測，所以撤回「提高警覺」的說法。</p>
-    <p class="note">其他需求指標（外銷訂單、記憶體營收、製造業存銷比、PMI 新訂單減存貨）也都測過，沒有一個能可靠地在高點前發出訊號。接下來改成另一個問題：<b>修正已經跌到 −10%、−15%、−20% 時，當時的需求狀態能不能分辨這次是普通修正，還是製造業長期修正</b>。測完後更新本頁。</p>
-  </div></section>
-
-  <section class="card"><h2 class="card-h">1990 年以來的長期修正，燈在什麼時候亮</h2><div class="card-b">
-    <div class="fig"><img src="taiwan_history.png" alt="每次長期修正中，各個燈第一次亮燈的時點相對台股高點"></div>
-    <p class="note">橫軸是距台股高點的天數，淺藍區是高點前 6 個月內。紫星＝雙源（2007 年起才有資料），藍點＝外銷訂單燈，綠菱形＝季調訂單回落（參考），淡綠三角＝訂單腰斬，橘方塊＝季線失守，黑線＝跌幅過半日。</p>
-  </div></section>
-
-  <section class="card"><h2 class="card-h">每次更新的紀錄</h2><div class="card-b">
+  <section class="card"><h2 class="card-h">歷史上跌到這個深度之後</h2><div class="card-b">
     <div class="tablebox"><table>
-      <thead><tr><th>更新日</th><th>訂單資料</th><th>營收資料</th><th>訂單燈</th><th>原廠燈</th><th>雙源</th><th>季線失守</th><th>確認燈</th><th>加權</th><th>判讀</th></tr></thead>
-      <tbody><tr><td>2026-11-16</td><td>2026-09</td><td>2026-10</td><td class="">—</td><td class="">—</td><td class="">—</td><td class="">—</td><td class="">—</td><td>41917.9</td><td>正常（需求燈全暗、季線未失守）</td></tr></tbody></table></div>
-    <p class="note">每月 2 日、16 日更新；燈號一有變化就記錄，6 個月後回頭對帳。</p>
+      <thead><tr><th>從 52 週高點</th><th>次數</th><th>後來變成長期修正</th><th>之後還會再跌（中位，全部）</th><th>之後還會再跌（中位，長期修正那幾次）</th></tr></thead>
+      <tbody><tr><td class="l">跌到 −10%</td><td>29</td><td>7/29（24%）</td><td>−8%</td><td>−32%</td></tr><tr><td class="l" class="hot">跌到 −15%（現在在這一格）</td><td>20</td><td class="hot">7/20（35%）</td><td>−12%</td><td>−29%</td></tr><tr><td class="l">跌到 −20%</td><td>14</td><td>7/14（50%）</td><td>−11%</td><td>−25%</td></tr></tbody></table></div>
+    <p class="note">長期修正＝加權從高點跌 25% 以上、超過 150 天；1991–2025 年共 7 次落在這個範圍內（1991、1994、2000、2002、2007、2011、2022）。跌得越深，變成長期修正的比例越高；跌到 −20% 時大約一半一半。</p>
+    <div class="fig"><img src="taiwan_history.png" alt="左：跌到各深度後變成長期修正的比例；右：近兩年加權指數、年線與 52 週高點的 −10%／−15%／−20% 線"></div>
+  </div></section>
+
+  <section class="card"><h2 class="card-h">跌破年線之後</h2><div class="card-b">
+    <p class="std">1991–2025 年加權跌破年線（連 3 日收在年線下）19 次。之後 12 個月內，中位數<b>還會再跌約 20%</b>（隨便挑一天約 11%）；但結果分成兩種：12 次又跌了 11%～52%，7 次幾乎就是底（0%～7%），中間沒有。之後 12 個月的報酬中位約 +4%。</p>
+    <p class="note">跌破年線前月線、季線有沒有反覆糾結，分不出這兩種結果。跌破後很快又站回年線也很常見（19 次有 15 次在一個月內），所以「站回年線」不等於修正結束。</p>
+  </div></section>
+
+  <section class="card"><h2 class="card-h">為什麼找不到台股的領先指標</h2><div class="card-b">
+    <p>我把 1990 年以來能取得的指標都拿來回測：亮燈之後 6 個月內出現長期修正的比例，和「隨便挑一天」比。沒有一個明顯勝出，而且官方數據都很晚。</p>
+    <div class="tablebox"><table>
+      <thead><tr><th>測過的指標</th><th>結果</th></tr></thead>
+      <tbody>
+        <tr><td class="l">外銷訂單、記憶體原廠營收（停止成長）</td><td class="l">兩個一起亮約 36%～46%，隨便一天約 23%；樣本只有 3 次，不足以稱為預測</td></tr>
+        <tr><td class="l">出口年增轉負、國發會景氣燈號</td><td class="l">太晚：出口轉負公布時，那次修正平均已跌掉七成</td></tr>
+        <tr><td class="l">製造業存銷比、PMI 新訂單減存貨</td><td class="l">差距小、檢定次數多，不可靠；存銷比只到 2023 年</td></tr>
+        <tr><td class="l">國發會領先÷落後指標（從高峰反轉）</td><td class="l">36%，和隨便一天的 36% 一樣；而且多半在高點之後才亮</td></tr>
+        <tr><td class="l">M平方 台灣景氣衰退機率</td><td class="l">每次收縮期都抓到，但升破 50% 時，長期修正中位已跌約七成：是確認，不是預警</td></tr>
+        <tr><td class="l">均線糾結、下跌速度、法人與融資</td><td class="l">分不出普通修正和長期修正；大部分長期修正是從高點直接急跌，沒有糾結</td></tr>
+      </tbody></table></div>
+    <p><b>原因</b>（推論）：</p>
+    <ol>
+      <li><b>股價領先需求</b>：7 次長期修正中有 6 次，跌到 −10%、−15%、−20% 時外銷訂單都還在成長。市場先反映，訂單幾個月後才轉弱。</li>
+      <li><b>台股的大跌常常是外部衝擊</b>：網路泡沫、金融海嘯、疫情、關稅，起點不在台灣的需求數據裡。</li>
+      <li><b>樣本太少</b>：35 年只有 7～9 次長期修正，任何指標都很容易「事後看起來很準」。</li>
+    </ol>
+    <p class="std">所以做法是：<b>不先知先覺，但不後知後覺</b>。不去猜高點，而是每月看清楚現在跌多深、年線在哪裡；需求數據只用來事後確認這次是不是製造業循環。</p>
   </div></section>
 
   <section class="card"><h2 class="card-h">方法與限制</h2><div class="card-b">
     <ul>
-      <li>長期修正＝加權指數從高點跌 25% 以上，且高點到低點超過 150 天；1990 年以來 9 次。</li>
-      <li>季節調整只用當時已公布的過去 5 年資料；亮燈日一律用公布日（訂單次月 20 日、營收次月 10 日）。</li>
-      <li>樣本少：雙源只有 2007 年後 3 次長期修正；季節處理、推算期間、雙源組合是回測過程中陸續試出來的。</li>
-      <li>外銷訂單是名目美元值，含價格與匯率；2026 年出口集中在資通訊、含晶片漲價，季節係數可能失準。</li>
-      <li>研究經兩輪獨立審查（另一個 Claude 審查者與 Grok），兩項原本的結論被推翻後已撤回；2026-11-16 再撤回雙源預警（見上方更正）。</li>
+      <li>深度用「比近 252 個交易日最高收盤跌多少」計算；同一段修正同一深度只算第一次。</li>
+      <li>歷史比例只有 14～29 次事件、7 次長期修正，是描述過去，不保證未來。</li>
+      <li>M平方 衰退機率由 M平方 公布，本頁每月照抄最新數值；它的 2024 年以前歷史是模型回填。</li>
+      <li>更正紀錄：本頁 2026-11-16 上線時以「外銷訂單＋記憶體營收雙源燈」為預警；複查發現該燈在谷底回升時也會亮，排除後只比隨機略好，11-16 撤回，11-17 改版為本頁。研究經另一個 Claude 審查者與 Grok 兩輪獨立審查。</li>
     </ul>
-    <p class="disclaimer">資料：經濟部統計處外銷訂單、財政部出口、國發會景氣循環基準日期、證交所加權指數、公開資訊觀測站月營收（經 FinMind）。德克 mur mur｜研究整理，不構成任何投資建議。</p>
+    <p class="disclaimer">資料：證交所加權指數、經濟部外銷訂單、財政部出口、國發會景氣指標、公開資訊觀測站月營收、M平方。德克 mur mur｜研究整理，不構成任何投資建議。</p>
   </div></section>
 </main>
 </body>
